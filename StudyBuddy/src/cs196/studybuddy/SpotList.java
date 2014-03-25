@@ -33,4 +33,32 @@ public class SpotList {
 			size++;
 		}
 	}
+
+	public int getSize() {
+		return this.size;
+	}
+
+	/**
+	 * 
+	 * @param minWifiSpeed
+	 * @param maxFoodDistance
+	 * @param tutors
+	 * @return
+	 */
+	public SpotList bestSpots(double minWifiSpeed, double maxFoodDistance,
+			boolean tutors) {
+		SpotList bestSpots = new SpotList();
+		for (int k = 0; k < this.getSize(); k++) {
+			Spot spot = spotList[k];
+			if (spot.getWifiSpeed() >= minWifiSpeed
+					&& spot.getFoodDistance() <= maxFoodDistance
+					&& spot.getTutors() == tutors)
+				bestSpots.addSpot(spot);
+		}
+		return bestSpots;
+	}
+
+	public String toString(int index) {
+		return this.spotList[index].toString();
+	}
 }
