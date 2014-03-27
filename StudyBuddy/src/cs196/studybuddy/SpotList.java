@@ -58,7 +58,17 @@ public class SpotList {
 		return bestSpots;
 	}
 
-	public String toString(int index) {
-		return this.spotList[index].toString();
+	/**
+	 * 
+	 * @param list
+	 * @return
+	 */
+	public String[] toString(SpotList list) {
+		String[] output = new String[list.getSize()];
+		for (int k = 0; k < output.length; k++) {
+			Spot spot = list.spotList[k];
+			output[k] = spot.toString();
+		}
+		return output;
 	}
 }

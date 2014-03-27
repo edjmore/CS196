@@ -6,5 +6,8 @@
     <string name="edit_search">Enter a Study Spot</string>
     <string name="search">Search</string>
     <string name="title_activity_display_search_results">Search Results</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="tutor_question">Do you need tutors?</string>
 
 </resources>

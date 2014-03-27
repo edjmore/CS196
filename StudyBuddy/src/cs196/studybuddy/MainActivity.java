@@ -6,9 +6,10 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.RadioButton;
 
 public class MainActivity extends Activity {
-	
+
 	public final static String EXTRA_MESSAGE = "cs196.StudyBuddy.MESSAGE";
 
 	@Override
@@ -23,20 +24,24 @@ public class MainActivity extends Activity {
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
-	
-	//public void sendMessage(View view){
-		//Intent intent = new Intent(this, DisplayMessageActivity.class);
-		//EditText editText = (EditText) findViewById(R.id.edit_message);
-		//String message = editText.getText().toString();
-		//intent.putExtra(EXTRA_MESSAGE, message);
-		//startActivity(intent);
-	//}
-	
-	public void sendSearch(View view){
+
+	public void sendSearch(View view) {
 		Intent intent = new Intent(this, DisplaySearchResults.class);
 		EditText editText = (EditText) findViewById(R.id.search);
 		String search = editText.getText().toString();
 		intent.putExtra(EXTRA_MESSAGE, search);
 		startActivity(intent);
+	}
+
+	public void onRadioButtonClicked(View view) {
+		boolean checked = ((RadioButton) view).isChecked();
+		switch (view.getId()) {
+		case R.id.radio_yes_tutors:
+			if (checked)
+				break;
+		case R.id.radio_no_tutors:
+			if (checked)
+				break;
+		}
 	}
 }

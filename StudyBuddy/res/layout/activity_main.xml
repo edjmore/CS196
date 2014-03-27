@@ -3,11 +3,39 @@
 	android:layout_height="match_parent" android:paddingBottom="@dimen/activity_vertical_margin"
 	android:paddingLeft="@dimen/activity_horizontal_margin"
 	android:paddingRight="@dimen/activity_horizontal_margin"
-	android:paddingTop="@dimen/activity_vertical_margin" tools:context=".MainActivity">
+	android:paddingTop="@dimen/activity_vertical_margin" tools:context=".MainActivity"
+	android:orientation="vertical">
 
-	<Button android:layout_width="wrap_content"
-		android:layout_height="wrap_content" android:text="@string/search"
-		android:onClick="sendSearch" />
-	<EditText android:id="@+id/search" android:layout_weight="1"
-		android:layout_width="0dp" android:layout_height="wrap_content"
-		android:hint="@string/edit_search" /></LinearLayout>
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+		android:layout_height="wrap_content" android:paddingBottom="@dimen/activity_vertical_margin"
+		android:paddingLeft="@dimen/activity_horizontal_margin"
+		android:paddingRight="@dimen/activity_horizontal_margin"
+		android:paddingTop="@dimen/activity_vertical_margin" tools:context=".MainActivity"
+		android:orientation="horizontal">
+		<EditText android:id="@+id/search" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:hint="@string/edit_search" />
+		<Button android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:text="@string/search"
+			android:onClick="sendSearch" />
+	</LinearLayout>
+
+	<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		android:layout_width="fill_parent" android:layout_height="wrap_content"
+		android:layout_gravity="bottom">
+		<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+			android:id="@+id/tutor_quest" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:text="@string/tutor_question"
+			android:textSize="20dp">
+		</TextView>
+		<RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:orientation="horizontal" android:layout_toRightOf="@id/tutor_quest">
+			<RadioButton android:id="@+id/radio_yes_tutors"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"
+				android:text="@string/yes" android:onClick="onRadioButtonClicked" />
+			<RadioButton android:id="@+id/radio_no_tutors"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"
+				android:text="@string/no" android:onClick="onRadioButtonClicked" />
+		</RadioGroup>
+	</RelativeLayout></LinearLayout>
