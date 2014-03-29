@@ -51,9 +51,13 @@ public class SpotList {
 		for (int k = 0; k < this.getSize(); k++) {
 			Spot spot = spotList[k];
 			if (spot.getWifiSpeed() >= minWifiSpeed
-					&& spot.getFoodDistance() <= maxFoodDistance
-					&& spot.getTutors() == tutors)
-				bestSpots.addSpot(spot);
+					&& spot.getFoodDistance() <= maxFoodDistance){
+				if (tutors && spot.getTutors()){
+					bestSpots.addSpot(spot);
+				} else if (!tutors) {
+					bestSpots.addSpot(spot);
+				}
+			}
 		}
 		return bestSpots;
 	}

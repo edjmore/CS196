@@ -9,5 +9,10 @@
     <string name="yes">Yes</string>
     <string name="no">No</string>
     <string name="tutor_question">Do you need tutors?</string>
+    <string name="s_quest">Search for a Study Spot:</string>
+    <string name="other_quest">-----------------------------------------------------------\n\nOr find the best Study Spots:\n</string>
+    <string name="best_button">Find Best Study Spots</string>
+    <string name="title_activity_display_best_results">DisplayBestResults</string>
+    <string name="hello_world">Hello world!</string>
 
 </resources>

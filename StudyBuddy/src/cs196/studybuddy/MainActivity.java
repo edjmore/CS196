@@ -37,11 +37,19 @@ public class MainActivity extends Activity {
 		boolean checked = ((RadioButton) view).isChecked();
 		switch (view.getId()) {
 		case R.id.radio_yes_tutors:
-			if (checked)
+			if (checked) {
 				break;
+			}
 		case R.id.radio_no_tutors:
-			if (checked)
+			if (checked) {
 				break;
+			}
 		}
+	}
+
+	public void findBest(View view) {
+		Intent intent = new Intent(this, DisplayBestResults.class);
+
+		startActivity(intent);
 	}
 }
