@@ -10,12 +10,19 @@ import android.widget.RadioButton;
 
 public class MainActivity extends Activity {
 
+	private SpotList master;
+
 	public final static String EXTRA_MESSAGE = "cs196.StudyBuddy.MESSAGE";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+
+		master = new SpotList();
+		// reading Spot data and putting spots into master list (needs to be
+		// fixed)
+		master.addSpot(new Spot("", 2, 0, false));
 	}
 
 	@Override
@@ -33,15 +40,19 @@ public class MainActivity extends Activity {
 		startActivity(intent);
 	}
 
+	private boolean tutors;
+
 	public void onRadioButtonClicked(View view) {
 		boolean checked = ((RadioButton) view).isChecked();
 		switch (view.getId()) {
 		case R.id.radio_yes_tutors:
 			if (checked) {
+				tutors = true;
 				break;
 			}
 		case R.id.radio_no_tutors:
 			if (checked) {
+				tutors = false;
 				break;
 			}
 		}
@@ -49,7 +60,16 @@ public class MainActivity extends Activity {
 
 	public void findBest(View view) {
 		Intent intent = new Intent(this, DisplayBestResults.class);
-
-		startActivity(intent);
+		SpotList best = master.bestSpots(1, 1, tutors);
+		if (best.spotPeek(0).getName().equals("VOID")) {
+			String[] out = new String[1];
+			out[0] = "No Study Spots match your criteria...";
+			intent.putExtra(EXTRA_MESSAGE, out);
+			startActivity(intent);
+		} else {
+			String[] out = best.toStringArray();
+			intent.putExtra(EXTRA_MESSAGE, out);
+			startActivity(intent);
+		}
 	}
 }

@@ -18,10 +18,11 @@ public class SpotList {
 	/**
 	 * 
 	 * @param spot
+	 * @return 
 	 */
 	public void addSpot(Spot spot) {
 		Spot[] temp;
-		if (this.spotList.length == this.size) {
+		if (this.spotList.length == this.getSize()) {
 			temp = new Spot[this.spotList.length * 2];
 			for (int k = 0; k < this.size; k++)
 				temp[k] = this.spotList[k];
@@ -38,6 +39,10 @@ public class SpotList {
 		return this.size;
 	}
 
+	public Spot spotPeek(int index) {
+		return this.spotList[index];
+	}
+
 	/**
 	 * 
 	 * @param minWifiSpeed
@@ -51,13 +56,17 @@ public class SpotList {
 		for (int k = 0; k < this.getSize(); k++) {
 			Spot spot = spotList[k];
 			if (spot.getWifiSpeed() >= minWifiSpeed
-					&& spot.getFoodDistance() <= maxFoodDistance){
-				if (tutors && spot.getTutors()){
+					&& spot.getFoodDistance() <= maxFoodDistance) {
+				if (tutors && spot.getTutors()) {
 					bestSpots.addSpot(spot);
 				} else if (!tutors) {
 					bestSpots.addSpot(spot);
 				}
 			}
+		}
+		if (bestSpots.getSize() == 0) {
+			bestSpots.addSpot(new Spot("VOID", 0, 0, true));
+			return bestSpots;
 		}
 		return bestSpots;
 	}
@@ -67,10 +76,10 @@ public class SpotList {
 	 * @param list
 	 * @return
 	 */
-	public String[] toString(SpotList list) {
-		String[] output = new String[list.getSize()];
+	public String[] toStringArray() {
+		String[] output = new String[this.getSize()];
 		for (int k = 0; k < output.length; k++) {
-			Spot spot = list.spotList[k];
+			Spot spot = this.spotList[k];
 			output[k] = spot.toString();
 		}
 		return output;
