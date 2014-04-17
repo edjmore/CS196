@@ -28,6 +28,7 @@ public class DisplayBestResults extends Activity {
 		
 		setContentView(textView);
 	}
+	
 
 	/**
 	 * Set up the {@link android.app.ActionBar}, if the API is available.

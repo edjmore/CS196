@@ -18,7 +18,7 @@ public class SpotList {
 	/**
 	 * 
 	 * @param spot
-	 * @return 
+	 * @return
 	 */
 	public void addSpot(Spot spot) {
 		Spot[] temp;
@@ -48,7 +48,7 @@ public class SpotList {
 	 * @param minWifiSpeed
 	 * @param maxFoodDistance
 	 * @param tutors
-	 * @return
+	 * @return a new SpotList with only the bestSpots in it
 	 */
 	public SpotList bestSpots(double minWifiSpeed, double maxFoodDistance,
 			boolean tutors) {
@@ -74,7 +74,8 @@ public class SpotList {
 	/**
 	 * 
 	 * @param list
-	 * @return
+	 * @return a SpotList converted to a String array where each string is a
+	 *         Spot toString()
 	 */
 	public String[] toStringArray() {
 		String[] output = new String[this.getSize()];

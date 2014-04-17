@@ -3,6 +3,7 @@ package cs196.studybuddy;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
@@ -19,6 +20,11 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
+		// Changing the keyboard for the search edit text so it shows "search"
+		// instead of "done"
+		EditText mEditText = (EditText) findViewById(R.id.search_edit_text);
+		mEditText.setImeActionLabel("Search", KeyEvent.KEYCODE_ENTER);
+
 		master = new SpotList();
 		// reading Spot data and putting spots into master list (needs to be
 		// fixed)
@@ -34,12 +40,13 @@ public class MainActivity extends Activity {
 
 	public void sendSearch(View view) {
 		Intent intent = new Intent(this, DisplaySearchResults.class);
-		EditText editText = (EditText) findViewById(R.id.search);
+		EditText editText = (EditText) findViewById(R.id.search_edit_text);
 		String search = editText.getText().toString();
 		intent.putExtra(EXTRA_MESSAGE, search);
 		startActivity(intent);
 	}
 
+	// onRadioButtonClicked method no longer necessary
 	private boolean tutors;
 
 	public void onRadioButtonClicked(View view) {
@@ -71,5 +78,10 @@ public class MainActivity extends Activity {
 			intent.putExtra(EXTRA_MESSAGE, out);
 			startActivity(intent);
 		}
+	}
+
+	public void onPrefsButtonClick(View view) {
+		Intent intent = new Intent(this, StudyPreferences.class);
+		startActivity(intent);
 	}
 }
