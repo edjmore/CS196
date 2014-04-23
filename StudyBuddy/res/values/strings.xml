@@ -16,5 +16,8 @@
     <string name="study_prefs">Enter Study Spot Preferences</string>
     <string name="title_activity_study_preferences">StudyPreferences</string>
     <string name="food_question">Nearest Food?</string>
+    <string name="searchProgress">Search Progress</string>
+    <string name="title_activity_ghhdjd">GHHDJD</string>
+    <string name="hello_world">Hello world!</string>
 
 </resources>

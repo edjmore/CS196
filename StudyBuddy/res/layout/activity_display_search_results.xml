@@ -8,4 +8,11 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".DisplaySearchResults" >
 
+    <ProgressBar
+        android:id="@+id/searchProgress"
+        style="style/SpinnerStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminate="true" />
+
 </RelativeLayout>

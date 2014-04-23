@@ -40,7 +40,8 @@
         </activity>
         <activity
             android:name="cs196.studybuddy.StudyPreferences"
-            android:label="@string/title_activity_study_preferences" >
+            android:label="@string/title_activity_study_preferences"
+            android:parentActivityName="MainActivity" >
         </activity>
     </application>
 

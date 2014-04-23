@@ -18,17 +18,18 @@ public class DisplayBestResults extends Activity {
 		setContentView(R.layout.activity_display_best_results);
 		// Show the Up button in the action bar.
 		setupActionBar();
-		
+
 		Intent intent = getIntent();
 		String[] best = intent.getStringArrayExtra(MainActivity.EXTRA_MESSAGE);
-		
+
+		// TODO: change layout of this activity to list view
+		// TODO: create an Adapter to show study spots in list view
 		TextView textView = new TextView(this);
 		textView.setTextSize(15);
 		textView.setText(best[0]);
-		
+
 		setContentView(textView);
 	}
-	
 
 	/**
 	 * Set up the {@link android.app.ActionBar}, if the API is available.

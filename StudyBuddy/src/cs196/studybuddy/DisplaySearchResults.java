@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ListView;
 import android.widget.TextView;
 
 public class DisplaySearchResults extends Activity {
@@ -22,12 +21,13 @@ public class DisplaySearchResults extends Activity {
 
 		Intent intent = getIntent();
 		String search = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
-
+/**
 		TextView textView = new TextView(this);
 		textView.setTextSize(15);
 		textView.setText("Results for " + search + "...");
 
 		setContentView(textView);
+		*/
 	}
 
 	/**

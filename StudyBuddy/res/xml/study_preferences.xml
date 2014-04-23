@@ -9,7 +9,7 @@
 
     <ListPreference
         android:entries="@array/food_distance"
-        android:entryValues="@array/food_distance"
+        android:entryValues="@array/food_distance_values"
         android:key="food_response"
         android:title="@string/food_question" />
 
