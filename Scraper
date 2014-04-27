@@ -1,0 +1,46 @@
+var http = require("http");
+// Utility function that downloads a URL and invokes
+// callback with the data.
+function download(url, callback) {
+  http.get(url, function(res) {
+    var data = "";
+    res.on('data', function (chunk) {
+      data += chunk;
+    });
+    res.on("end", function() {
+      callback(data);
+    });
+  }).on("error", function() {
+    callback(null);
+  });
+}
+
+var cheerio = require("cheerio"),
+request = require("request"),
+fs = require("fs"),
+names = [],
+food = "ice cream";
+
+var url = "http://www.yelp.com/search?find_desc=" + food +"&find_loc=908+w+illinois+street&ns=1&ls=e0ec259a4619b92c#";
+
+download(url, function(data) {
+  if (data) {
+    // console.log(data);
+    var $ = cheerio.load(data);
+    $("div.media-story").each(function(i, e) {
+      var index = $(e).find("h3>span").text();
+	  names.push(index);
+	  console.log(index)
+    });
+	$("div.secondary-attributes").each(function(i, e) {
+      var loc = $(e).find("address").text();
+	  var phone = $(e).find("span").text();
+	  console.log(loc + phone);
+	});  
+  }
+});
+
+for (var i = 0 ; i < names.length; i++){
+
+console.log(names[i]);
+}
