@@ -9,7 +9,6 @@ import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.RadioButton;
 
 public class MainActivity extends Activity {
 
@@ -30,7 +29,12 @@ public class MainActivity extends Activity {
 		master = new SpotList();
 		// reading Spot data and putting spots into master list (needs to be
 		// fixed)
-		master.addSpot(new Spot("", 2, 0.75, false));
+		// sample spots:
+		master.addSpot(new Spot("Grainger Library", 1.3, true));
+		master.addSpot(new Spot("Mechanical Engineering Lab", 1.27, false));
+		master.addSpot(new Spot("Talbot Lab", 1.25, true));
+		master.addSpot(new Spot("Undergrad Library", .55, false));
+		master.addSpot(new Spot("Psychology Building", 0.93, false));
 	}
 
 	@Override
@@ -43,10 +47,15 @@ public class MainActivity extends Activity {
 	// searches the list of study spots for one which matches the name typed by
 	// the user
 	public void sendSearch(View view) {
+
 		Intent intent = new Intent(this, DisplaySearchResults.class);
 		EditText editText = (EditText) findViewById(R.id.search_edit_text);
 		String search = editText.getText().toString();
-		intent.putExtra(EXTRA_MESSAGE, search);
+
+		String[] results = master.search(search).toStringArray();
+
+		intent.putExtra(EXTRA_MESSAGE, results);
+
 		startActivity(intent);
 	}
 
@@ -79,18 +88,12 @@ public class MainActivity extends Activity {
 				"food_response_values", "2"));
 		// working on it...
 
-		SpotList best = master.bestSpots(1, distance, tutors);
+		SpotList best = master.bestSpots(1, tutors);
+		best.sort(distance, tutors);
+		String[] result = best.toStringArray();
+		intent.putExtra(EXTRA_MESSAGE, result);
+		startActivity(intent);
 
-		if (best.spotPeek(0).getName().equals("VOID")) {
-			String[] out = new String[1];
-			out[0] = "No Study Spots match your criteria...";
-			intent.putExtra(EXTRA_MESSAGE, out);
-			startActivity(intent);
-		} else {
-			String[] out = best.toStringArray();
-			intent.putExtra(EXTRA_MESSAGE, out);
-			startActivity(intent);
-		}
 	}
 
 	// shows study spot preferences (food distance and tutor availability

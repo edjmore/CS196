@@ -28,23 +28,19 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int action_settings=0x7f0a0005;
-        public static final int radio_no_tutors=0x7f0a0004;
-        public static final int radio_yes_tutors=0x7f0a0003;
-        public static final int searchProgress=0x7f0a0000;
+        public static final int action_settings=0x7f0a0002;
+        public static final int listview=0x7f0a0000;
         public static final int search_edit_text=0x7f0a0001;
-        public static final int tutor_quest=0x7f0a0002;
     }
     public static final class layout {
-        public static final int activity_display_best_results=0x7f030000;
-        public static final int activity_display_search_results=0x7f030001;
-        public static final int activity_main=0x7f030002;
+        public static final int activity_display_search_results=0x7f030000;
+        public static final int activity_main=0x7f030001;
+        public static final int list_view_layout=0x7f030002;
     }
     public static final class menu {
-        public static final int display_best_results=0x7f090000;
-        public static final int display_search_results=0x7f090001;
-        public static final int ghhdjd=0x7f090002;
-        public static final int main=0x7f090003;
+        public static final int display_search_results=0x7f090000;
+        public static final int ghhdjd=0x7f090001;
+        public static final int main=0x7f090002;
     }
     public static final class string {
         public static final int action_settings=0x7f070001;

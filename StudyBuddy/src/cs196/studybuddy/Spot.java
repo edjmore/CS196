@@ -8,13 +8,13 @@ package cs196.studybuddy;
 public class Spot {
 
 	private String name;
-	private double wifiSpeed;
+	// private double wifiSpeed;
 	private double foodDistance;
 	private boolean tutors;
 
 	public Spot() {
 		name = "No data";
-		wifiSpeed = 0;
+		// wifiSpeed = 0;
 		foodDistance = 0;
 		tutors = false;
 	}
@@ -26,10 +26,9 @@ public class Spot {
 	 * @param food
 	 * @param tutors
 	 */
-	public Spot(String name, double wifiSpeed, double foodDistance,
-			boolean tutors) {
+	public Spot(String name, double foodDistance, boolean tutors) {
 		this.name = name;
-		this.wifiSpeed = wifiSpeed;
+		// this.wifiSpeed = wifiSpeed;
 		this.foodDistance = foodDistance;
 		this.tutors = tutors;
 	}
@@ -38,10 +37,24 @@ public class Spot {
 		return this.name;
 	}
 
-	public double getWifiSpeed() {
-		return this.wifiSpeed;
+	public int compareTo(Spot other, double food, boolean tutors) {
+		int score = 0;
+		if (this.getTutors() == tutors)
+			score++;
+		if (other.getTutors() == tutors)
+			score--;
+		if (this.getFoodDistance() <= food)
+			score++;
+		if (other.getFoodDistance() <= food)
+			score--;
+		if (score == 0)
+			return other.getFoodDistance() > this.getFoodDistance() ? 1 : -1;
+		return score;
 	}
 
+	/**
+	 * public double getWifiSpeed() { return this.wifiSpeed; }
+	 */
 	public double getFoodDistance() {
 		return this.foodDistance;
 	}
@@ -56,7 +69,7 @@ public class Spot {
 			tutorOut = "Available";
 		else
 			tutorOut = "Unavailable";
-		return name + ":\nWifi Speed: " + this.wifiSpeed + "(units)		Tutors: "
-				+ tutorOut + "\nClosest Food: " + this.foodDistance;
+		return name + "\nTutors: " + tutorOut + "\nClosest Food: "
+				+ this.foodDistance;
 	}
 }

@@ -8,7 +8,11 @@ import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TextView;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 public class DisplaySearchResults extends Activity {
 
@@ -18,16 +22,24 @@ public class DisplaySearchResults extends Activity {
 		setContentView(R.layout.activity_display_search_results);
 		// Show the Up button in the action bar.
 		setupActionBar();
+		setContentView(R.layout.activity_display_search_results);
 
 		Intent intent = getIntent();
-		String search = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
-/**
-		TextView textView = new TextView(this);
-		textView.setTextSize(15);
-		textView.setText("Results for " + search + "...");
+		String[] results = intent
+				.getStringArrayExtra(MainActivity.EXTRA_MESSAGE);
 
-		setContentView(textView);
-		*/
+		ListView listView = (ListView) findViewById(R.id.listview);
+		listView.setTextFilterEnabled(true);
+
+		listView.setAdapter(new ArrayAdapter<String>(this,
+				R.layout.list_view_layout, results));
+
+		listView.setOnItemClickListener(new OnItemClickListener() {
+			public void onItemClick(AdapterView<?> parent, View view,
+					int position, long id) {
+				// TODO: change what happens when you click on a list item
+			}
+		});
 	}
 
 	/**

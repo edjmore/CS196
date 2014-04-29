@@ -8,14 +8,18 @@ import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TextView;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 public class DisplayBestResults extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_display_best_results);
+		setContentView(R.layout.activity_display_search_results);
 		// Show the Up button in the action bar.
 		setupActionBar();
 
@@ -24,11 +28,18 @@ public class DisplayBestResults extends Activity {
 
 		// TODO: change layout of this activity to list view
 		// TODO: create an Adapter to show study spots in list view
-		TextView textView = new TextView(this);
-		textView.setTextSize(15);
-		textView.setText(best[0]);
 
-		setContentView(textView);
+		ListView listView = (ListView) findViewById(R.id.listview);
+		listView.setAdapter(new ArrayAdapter<String>(this,
+				R.layout.list_view_layout, best));
+
+		listView.setOnItemClickListener(new OnItemClickListener() {
+			public void onItemClick(AdapterView<?> parent, View view,
+					int position, long id) {
+				// TODO: change what happens when you click on a list item
+			}
+		});
+
 	}
 
 	/**
@@ -44,7 +55,7 @@ public class DisplayBestResults extends Activity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.display_best_results, menu);
+		getMenuInflater().inflate(R.menu.display_search_results, menu);
 		return true;
 	}
 

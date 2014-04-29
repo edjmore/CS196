@@ -15,6 +15,15 @@ public class SpotList {
 		size = 0;
 	}
 
+	public SpotList search(String name) {
+		SpotList out = new SpotList();
+		for (int i = 0; i < this.getSize(); i++) {
+			if (spotList[i].getName().indexOf(name) >= 0)
+				out.addSpot(spotList[i]);
+		}
+		return out;
+	}
+
 	/**
 	 * 
 	 * @param spot
@@ -50,25 +59,46 @@ public class SpotList {
 	 * @param tutors
 	 * @return a new SpotList with only the bestSpots in it
 	 */
-	public SpotList bestSpots(double minWifiSpeed, double maxFoodDistance,
-			boolean tutors) {
+	public SpotList bestSpots(double maxFoodDistance, boolean tutors) {
 		SpotList bestSpots = new SpotList();
-		for (int k = 0; k < this.getSize(); k++) {
-			Spot spot = spotList[k];
-			if (spot.getWifiSpeed() >= minWifiSpeed
-					&& spot.getFoodDistance() <= maxFoodDistance) {
-				if (tutors && spot.getTutors()) {
-					bestSpots.addSpot(spot);
-				} else if (!tutors) {
-					bestSpots.addSpot(spot);
-				}
+		for (int i = 0; i < this.getSize(); i++) {
+			Spot spot = spotList[i];
+			if (spot.getTutors() == tutors) {
+				bestSpots.addSpot(spot);
+			} else if (spot.getFoodDistance() <= maxFoodDistance) {
+				bestSpots.addSpot(spot);
 			}
 		}
-		if (bestSpots.getSize() == 0) {
-			bestSpots.addSpot(new Spot("VOID", 0, 0, true));
-			return bestSpots;
-		}
 		return bestSpots;
+	}
+
+	public void sort(double food, boolean tutors) {
+		sort(food, tutors, 0, getSize());
+	}
+
+	public void sort(double maxFoodDistance, boolean tutors, int lo, int hi) {
+		if (lo < hi) {
+			swap(lo, findBest(maxFoodDistance, tutors, hi));
+			sort(maxFoodDistance, tutors, lo + 1, hi);
+		}
+	}
+
+	public void swap(int lo, int hi) {
+		Spot temp = spotList[lo];
+		spotList[lo] = spotList[hi];
+		spotList[hi] = temp;
+	}
+
+	public int findBest(double food, boolean tutors, int size) {
+		Spot spot = spotList[size - 1];
+		int spotIndex = size - 1;
+		if (size == 1)
+			return spotIndex;
+		int bestIndex = findBest(food, tutors, size - 1);
+		Spot best = spotList[bestIndex];
+		if (spot.compareTo(best, food, tutors) >= 0)
+			return spotIndex;
+		return bestIndex;
 	}
 
 	/**

@@ -34,25 +34,7 @@
 	<Button android:text="@string/study_prefs" android:layout_width="wrap_content"
 		android:layout_height="wrap_content" android:onClick="onPrefsButtonClick"></Button>
 
-	<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-		android:layout_width="fill_parent" android:layout_height="wrap_content"
-		android:layout_gravity="bottom">
-		<TextView xmlns:android="http://schemas.android.com/apk/res/android"
-			android:id="@+id/tutor_quest" android:layout_width="wrap_content"
-			android:layout_height="wrap_content" android:text="@string/tutor_question"
-			android:textSize="20dp">
-		</TextView>
-		<RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
-			android:layout_width="wrap_content" android:layout_height="wrap_content"
-			android:orientation="horizontal" android:layout_toRightOf="@id/tutor_quest">
-			<RadioButton android:id="@+id/radio_yes_tutors"
-				android:layout_width="wrap_content" android:layout_height="wrap_content"
-				android:text="@string/yes" android:onClick="onRadioButtonClicked" />
-			<RadioButton android:id="@+id/radio_no_tutors"
-				android:layout_width="wrap_content" android:layout_height="wrap_content"
-				android:text="@string/no" android:onClick="onRadioButtonClicked" />
-		</RadioGroup>
-	</RelativeLayout>
+
 
 	<Button xmlns:android="http://schemas.android.com/apk/res/android"
 		android:layout_width="wrap_content" android:layout_height="wrap_content"

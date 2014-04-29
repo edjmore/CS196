@@ -42,7 +42,7 @@ public class StudyPreferences extends Activity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.display_best_results, menu);
+		getMenuInflater().inflate(R.menu.display_search_results, menu);
 		return true;
 	}
 
