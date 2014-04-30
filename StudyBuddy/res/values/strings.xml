@@ -19,5 +19,6 @@
     <string name="searchProgress">Search Progress</string>
     <string name="title_activity_ghhdjd">GHHDJD</string>
     <string name="hello_world">Hello world!</string>
+    <string name="cardinal_quest">North or South of Green Street?</string>
 
 </resources>

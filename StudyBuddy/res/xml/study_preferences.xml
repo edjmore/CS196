@@ -8,9 +8,9 @@
     </CheckBoxPreference>
 
     <ListPreference
-        android:entries="@array/food_distance"
-        android:entryValues="@array/food_distance_values"
-        android:key="food_response"
-        android:title="@string/food_question" />
+        android:entries="@array/cardinal"
+        android:entryValues="@array/cardinal"
+        android:key="cardinal_response"
+        android:title="@string/cardinal_quest" />
 
 </PreferenceScreen>

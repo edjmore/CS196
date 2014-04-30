@@ -9,8 +9,7 @@ package cs196.studybuddy;
 
 public final class R {
     public static final class array {
-        public static final int food_distance=0x7f050000;
-        public static final int food_distance_values=0x7f050001;
+        public static final int cardinal=0x7f050000;
     }
     public static final class attr {
     }
@@ -46,6 +45,7 @@ public final class R {
         public static final int action_settings=0x7f070001;
         public static final int app_name=0x7f070000;
         public static final int best_button=0x7f07000a;
+        public static final int cardinal_quest=0x7f070012;
         public static final int food_question=0x7f07000e;
         public static final int hello_world=0x7f070011;
         public static final int no=0x7f070006;

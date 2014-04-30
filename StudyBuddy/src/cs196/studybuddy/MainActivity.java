@@ -15,6 +15,7 @@ public class MainActivity extends Activity {
 	private SpotList master;
 
 	public final static String EXTRA_MESSAGE = "cs196.StudyBuddy.MESSAGE";
+	public final static String EXTRA_MESSAGE_2 = "cs196.StudyBuddy.MESSAGE2";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -84,14 +85,18 @@ public class MainActivity extends Activity {
 
 		// user preference for max distance from food (between 0 and 2 miles,
 		// defaults to 2 miles)
-		double distance = Double.parseDouble(myPrefs.getString(
-				"food_response_values", "2"));
-		// working on it...
 
-		SpotList best = master.bestSpots(1, tutors);
-		best.sort(distance, tutors);
+		// true if user selected north of green street
+		boolean north = myPrefs.getString("cardinal_response", "North").equals(
+				"North");
+
+		String prefs = "T: " + tutors + " N: " + north;
+
+		SpotList best = master.bestSpots(0, tutors);
+		best.sort(0, tutors);
 		String[] result = best.toStringArray();
 		intent.putExtra(EXTRA_MESSAGE, result);
+		intent.putExtra(EXTRA_MESSAGE_2, prefs);
 		startActivity(intent);
 
 	}

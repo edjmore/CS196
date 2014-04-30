@@ -25,7 +25,9 @@ public class DisplayBestResults extends Activity {
 
 		Intent intent = getIntent();
 		String[] best = intent.getStringArrayExtra(MainActivity.EXTRA_MESSAGE);
+		String prefs = intent.getStringExtra(MainActivity.EXTRA_MESSAGE_2);
 
+		setTitle(prefs);
 		// TODO: change layout of this activity to list view
 		// TODO: create an Adapter to show study spots in list view
 
