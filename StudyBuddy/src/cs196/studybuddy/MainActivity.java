@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.text.format.Time;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.View;
@@ -28,66 +29,66 @@ public class MainActivity extends Activity {
 		EditText mEditText = (EditText) findViewById(R.id.search_edit_text);
 		mEditText.setImeActionLabel("Search", KeyEvent.KEYCODE_ENTER);
 
-		Coffee bevande = new Coffee("Bevande", 0, 0);
-		Coffee caff = new Coffee("Caffeinator", 0, 0);
-		Coffee royale = new Coffee("Espresso Royale", 0, 0);
-		Coffee tom = new Coffee("Only the best...", 0, 0);
+		Coffee bevande = new Coffee("Bevande", 630, 1730);
+		Coffee caff = new Coffee("Caffeinator", 600, 2300);
+		Coffee royale = new Coffee("Espresso Royale", 600, 2300);
+		Coffee tom = new Coffee("Only the best...", 0, 2300);
 		Coffee red = new Coffee("No", 0, 0);
 
-		Food cravings = new Food("Cravings", 0, 0);
-		Food subway = new Food("Subway", 0, 0);
-		Food veggie = new Food("Red Herring Vegetarian", 0, 0);
-		Food perkins = new Food("Perkins Bakery", 0, 0);
-		Food rain = new Food("Rainbow Garden", 0, 0);
-		Food wendys = new Food("Wendy's", 0, 0);
-		Food mia = new Food("Mia Za's", 0, 0);
-		Food thomas = new Food("Cheerios", 0, 0);
-		Food herring = new Food("Herring", 0, 0);
-		Food i57 = new Food("I-57", 0, 0);
+		Food cravings = new Food("Cravings", 1000, 2030);
+		Food subway = new Food("Subway", 800, 2200);
+		Food veggie = new Food("Red Herring Vegetarian", 1000, 1330);
+		Food perkins = new Food("Perkins Bakery", 0, 2300);
+		Food rain = new Food("Rainbow Garden", 1000, 2030);
+		Food wendys = new Food("Wendy's", 830, 2300);
+		Food mia = new Food("Mia Za's", 900, 2000);
+		Food thomas = new Food("Cheerios", 0, 2300);
+		Food herring = new Food("Hardcore Herring", 0, 2300);
+		Food i57 = new Food("I-57", 800, 2300);
 
 		master = new SpotList();
 		master.addSpot(new Spot("Grainger Library", bevande, cravings, true,
-				true, true, 0, 23));
-		master.addSpot(new Spot("Talbot Lab", bevande, cravings, true,
-				true, true, 0, 23));
-		master.addSpot(new Spot("Mechanical Engineering Lab (MEL)", bevande, cravings, true,
-				true, true, 0, 23));
-		master.addSpot(new Spot("Psychology Building", bevande, cravings, true,
-				true, true, 0, 23));
-		master.addSpot(new Spot("Undegraduate Library (UGL)", bevande, cravings, true,
-				true, true, 0, 23));
-		master.addSpot(new Spot("Siebel Center", bevande, cravings, true,
-				true, true, 0, 23));
-		master.addSpot(new Spot("Ikenberry Commons (SDRP)", bevande, cravings, true,
-				true, true, 0, 23));
-		master.addSpot(new Spot("Main Library", bevande, cravings, true,
-				true, true, 0, 23));
-		master.addSpot(new Spot("Business Instructional Facility (BIF)", bevande, cravings, true,
-				true, true, 0, 23));
-		master.addSpot(new Spot("Illini Student Union", bevande, cravings, true,
-				true, true, 0, 23));
-		master.addSpot(new Spot("Loomis Lab", bevande, cravings, true,
-				true, true, 0, 23));
-		master.addSpot(new Spot("Activities and Recreation Center (ARC)", bevande, cravings, true,
-				true, true, 0, 23));
-		master.addSpot(new Spot("Engineering Hall", bevande, cravings, true,
-				true, true, 0, 23));
-		master.addSpot(new Spot("The Armory", bevande, cravings, true,
-				true, true, 0, 23));
-		master.addSpot(new Spot("Digital Computer Lab (DCL)", bevande, cravings, true,
-				true, true, 0, 23));
-		master.addSpot(new Spot("Altgeld Hall", bevande, cravings, true,
-				true, true, 0, 23));
-		master.addSpot(new Spot("Noyes Lab", bevande, cravings, true,
-				true, true, 0, 23));
-		master.addSpot(new Spot("Foreign Language Building", bevande, cravings, true,
-				true, true, 0, 23));
-		master.addSpot(new Spot("Everritt Lab", bevande, cravings, true,
-				true, true, 0, 23));
-		master.addSpot(new Spot("Thomas's House", bevande, cravings, true,
-				true, true, 0, 23));
-		master.addSpot(new Spot("Red Lion", bevande, cravings, true,
-				true, true, 0, 23));
+				true, true, 730, 2300));
+		master.addSpot(new Spot("Talbot Lab", bevande, cravings, false, true,
+				true, 600, 2100));
+		master.addSpot(new Spot("Mechanical Engineering Lab (MEL)", bevande,
+				cravings, false, true, true, 600, 2300));
+		master.addSpot(new Spot("Psychology Building", royale, subway, false,
+				false, false, 600, 1900));
+		master.addSpot(new Spot("Undegraduate Library (UGL)", royale, veggie,
+				true, false, false, 0, 2300));
+		master.addSpot(new Spot("Siebel Center", bevande, perkins, true, true,
+				true, 600, 2300));
+		master.addSpot(new Spot("Ikenberry Commons (SDRP)", caff, i57, false,
+				false, false, 0, 2300));
+		master.addSpot(new Spot("Main Library", royale, veggie, false, false,
+				false, 500, 2300));
+		master.addSpot(new Spot("Business Instructional Facility (BIF)",
+				royale, veggie, false, false, false, 500, 2300));
+		master.addSpot(new Spot("Illini Student Union", royale, wendys, false,
+				false, false, 0, 2300));
+		master.addSpot(new Spot("Loomis Lab", bevande, veggie, true, true,
+				false, 600, 2000));
+		master.addSpot(new Spot("Activities and Recreation Center (ARC)",
+				royale, rain, false, false, false, 600, 2300));
+		master.addSpot(new Spot("Engineering Hall", bevande, cravings, false,
+				true, true, 600, 2300));
+		master.addSpot(new Spot("The Armory", royale, subway, false, false,
+				false, 400, 2200));
+		master.addSpot(new Spot("Digital Computer Lab (DCL)", bevande,
+				cravings, false, true, true, 545, 2400));
+		master.addSpot(new Spot("Altgeld Library", royale, mia, true, false,
+				false, 600, 2200));
+		master.addSpot(new Spot("Chemistry Library (Noyes)", royale, veggie,
+				true, false, false, 600, 2200));
+		master.addSpot(new Spot("Foreign Language Building", royale, veggie,
+				false, false, false, 600, 2100));
+		master.addSpot(new Spot("Everitt Lab", royale, cravings, true, true,
+				true, 600, 2100));
+		master.addSpot(new Spot("Thomas's House", tom, thomas, true, true,
+				false, 0, 2300));
+		master.addSpot(new Spot("Red Lion", red, herring, false, false, false,
+				700, 2500));
 		// reading Spot data and putting spots into master list (needs to be
 		// fixed)
 		// sample spots:
@@ -146,9 +147,18 @@ public class MainActivity extends Activity {
 		boolean north = myPrefs.getString("cardinal_response", "North").equals(
 				"North");
 
-		String prefs = "T: " + tutors + " N: " + north;
+		boolean EWS = myPrefs.getBoolean("ews_response", false);
 
-		SpotList best = master.bestSpots(north, tutors);
+		Time now = new Time();
+		now.setToNow();
+		int hour = now.hour;
+		int min = now.minute;
+		int time = (hour * 100) + min;
+
+		String prefs = "T: " + tutors + " N: " + north + " E: " + EWS + " "
+				+ time;
+
+		SpotList best = master.bestSpots(north, tutors, EWS);
 		best.sort(north, tutors);
 		String[] result = best.toStringArray();
 		intent.putExtra(EXTRA_MESSAGE, result);

@@ -8,17 +8,16 @@
     <string name="title_activity_display_search_results">Search Results</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
-    <string name="tutor_question">Do you need tutors?</string>
+    <string name="tutor_question">Tutors?</string>
     <string name="s_quest">Search for a Study Spot:</string>
     <string name="other_quest">-----------------------------------------------------------\n\nOr find the best Study Spots:\n</string>
     <string name="best_button">Find Best Study Spots</string>
     <string name="title_activity_display_best_results">DisplayBestResults</string>
     <string name="study_prefs">Enter Study Spot Preferences</string>
     <string name="title_activity_study_preferences">StudyPreferences</string>
-    <string name="food_question">Nearest Food?</string>
     <string name="searchProgress">Search Progress</string>
-    <string name="title_activity_ghhdjd">GHHDJD</string>
-    <string name="hello_world">Hello world!</string>
     <string name="cardinal_quest">North or South of Green Street?</string>
+    <string name="ews_quest">EWS?</string>
+    <string name="needs">Do you need....</string>
 
 </resources>

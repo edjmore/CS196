@@ -2,15 +2,21 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" >
 
-    <CheckBoxPreference
-        android:key="tutor_response"
-        android:title="@string/tutor_question" >
-    </CheckBoxPreference>
-
     <ListPreference
         android:entries="@array/cardinal"
         android:entryValues="@array/cardinal"
         android:key="cardinal_response"
         android:title="@string/cardinal_quest" />
+
+    <PreferenceCategory android:title="@string/needs" >
+        <CheckBoxPreference
+            android:key="tutor_response"
+            android:title="@string/tutor_question" >
+        </CheckBoxPreference>
+        <CheckBoxPreference
+            android:key="ews_response"
+            android:title="@string/ews_quest" >
+        </CheckBoxPreference>
+    </PreferenceCategory>
 
 </PreferenceScreen>

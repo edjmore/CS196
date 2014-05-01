@@ -1,8 +1,7 @@
 package cs196.studybuddy;
 
 import java.io.File;
-
-
+import java.util.Locale;
 
 /**
  * 
@@ -18,15 +17,16 @@ public class SpotList {
 		spotList = new Spot[21];
 		size = 0;
 	}
-	
-	public SpotList(File data){
-		
+
+	public SpotList(File data) {
+
 	}
 
 	public SpotList search(String name) {
+		name = name.toUpperCase(Locale.US);
 		SpotList out = new SpotList();
 		for (int i = 0; i < this.getSize(); i++) {
-			if (spotList[i].getName().indexOf(name) >= 0)
+			if (spotList[i].getName().toUpperCase(Locale.US).indexOf(name) >= 0)
 				out.addSpot(spotList[i]);
 		}
 		return out;
@@ -67,12 +67,16 @@ public class SpotList {
 	 * @param tutors
 	 * @return a new SpotList with only the bestSpots in it
 	 */
-	public SpotList bestSpots(boolean isNorth, boolean tutors) {
+	public SpotList bestSpots(boolean isNorth, boolean tutors, boolean EWS) {
 		SpotList bestSpots = new SpotList();
-		for (int i = 0; i < this.getSize(); i++) {
-			Spot spot = spotList[i];
-			if (spot.getTutors() == tutors && spot.getIsNorth() == isNorth) {
-				bestSpots.addSpot(spot);
+
+		for (int i = 0; i < this.getSize() - 1; i++) {
+			Spot bestspot = this.spotList[i];
+			if ((bestspot.getTutors() == true || bestspot.getTutors() == tutors)
+					&& bestspot.getIsNorth() == isNorth
+					&& (bestspot.getEWS() == true || bestspot.getEWS() == EWS)
+					&& bestspot.isOpen()) {
+				bestSpots.addSpot(bestspot);
 			}
 		}
 		return bestSpots;

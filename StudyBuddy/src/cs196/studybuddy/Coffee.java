@@ -2,43 +2,45 @@ package cs196.studybuddy;
 
 import android.text.format.Time;
 
-
 public class Coffee {
 	private String name;
 	private int openTime;
 	private int closeTime;
-	
-	public Coffee(){
+
+	public Coffee() {
 		name = "";
 		openTime = 0;
 		closeTime = 0;
 	}
-	
-	public Coffee(String name, int openTime, int closeTime){
+
+	public Coffee(String name, int openTime, int closeTime) {
 		this.name = name;
 		this.openTime = openTime;
 		this.closeTime = closeTime;
 	}
-	
-	public String getName(){
+
+	public String getName() {
 		return this.name;
 	}
-	
-	
-	public int getOpenTime(){
+
+	public int getOpenTime() {
 		return this.openTime;
 	}
-	
-	public int getCloseTime(){
+
+	public int getCloseTime() {
 		return this.closeTime;
 	}
-	public boolean isOpen(){
-		boolean open = false;
+
+	public boolean isOpen() {
+		boolean isopen = false;
 		Time now = new Time();
 		now.setToNow();
-		if( now.hour >= this.openTime && now.hour < this.closeTime) open = true;
-		return open;
-		
+		int hour = now.hour;
+		int min = now.minute;
+		int time = (hour * 100) + min;
+		if (time >= this.openTime && time < this.closeTime)
+			isopen = true;
+		return isopen;
+
 	}
 }
-

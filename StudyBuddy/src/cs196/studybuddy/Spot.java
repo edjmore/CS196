@@ -100,32 +100,32 @@ public class Spot {
 		String returnable = name;
 
 		if (this.tutors)
-			returnable = returnable + "\n Tutors: Available";
+			returnable = returnable + "\nTutors: Available";
 		else
-			returnable = returnable + " \n Tutors: Unavailable";
+			returnable = returnable + " \nTutors: Unavailable";
 
 		if (closestCoffee != null && closestCoffee.isOpen())
-			returnable = returnable + "\n Closest Coffee: "
-					+ this.closestCoffee.getName() + "  Open";
+			returnable = returnable + "\nCoffee: "
+					+ this.closestCoffee.getName() + "  (OPEN)";
 		else if (!closestCoffee.isOpen())
-			returnable = returnable + "\n Closest Coffee: "
-					+ this.closestCoffee.getName() + "  Closed";
+			returnable = returnable + "\nCoffee: "
+					+ this.closestCoffee.getName() + "  (CLOSED)";
 		else
-			returnable = returnable + "\n Closest Coffee: None";
+			returnable = returnable + "\nCoffee: None";
 
 		if (closestFood != null && closestFood.isOpen())
-			returnable = returnable + "\n Closest Food: "
-					+ this.closestFood.getName() + "  Open";
+			returnable = returnable + "\nFood: "
+					+ this.closestFood.getName() + "  (OPEN)";
 		else if (!closestFood.isOpen())
-			returnable = returnable + "\n Closest Food: "
-					+ this.closestFood.getName() + "  Closed";
+			returnable = returnable + "\nFood: "
+					+ this.closestFood.getName() + "  (CLOSED)";
 		else
-			returnable = returnable + "\n Closest Food: None";
+			returnable = returnable + "\nClosest Food: None";
 
 		if (EWS)
-			returnable = returnable + "\n EWS: Available";
+			returnable = returnable + "\nEWS: Available";
 		else
-			returnable = returnable + " \n EWS: Unavailable";
+			returnable = returnable + " \nEWS: Unavailable";
 
 		return returnable;
 
@@ -135,7 +135,10 @@ public class Spot {
 		boolean isopen = false;
 		Time now = new Time();
 		now.setToNow();
-		if (now.hour >= this.open && now.hour < this.close)
+		int hour = now.hour;
+		int min = now.minute;
+		int time = (hour * 100) + min;
+		if (time >= this.open && time < this.close)
 			isopen = true;
 		return isopen;
 

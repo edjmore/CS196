@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/s_quest"
-        android:textSize="20dp" >
+        android:textSize="20sp" >
     </TextView>
 
     <LinearLayout
@@ -44,21 +44,28 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/other_quest"
-        android:textSize="20dp" >
+        android:textSize="20sp" >
     </TextView>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="onPrefsButtonClick"
-        android:text="@string/study_prefs" >
-    </Button>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical" >
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="findBest"
-        android:text="@string/best_button" >
-    </Button>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onPrefsButtonClick"
+            android:text="@string/study_prefs" >
+        </Button>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="findBest"
+            android:text="@string/best_button" >
+        </Button>
+    </LinearLayout>
 
 </LinearLayout>

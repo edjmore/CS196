@@ -32,12 +32,15 @@ public class Food {
 	}
 
 	public boolean isOpen() {
-		boolean open = false;
+		boolean isopen = false;
 		Time now = new Time();
 		now.setToNow();
-		if (now.hour >= this.openTime && now.hour < this.closeTime)
-			open = true;
-		return open;
+		int hour = now.hour;
+		int min = now.minute;
+		int time = (hour * 100) + min;
+		if (time >= this.openTime && time < this.closeTime)
+			isopen = true;
+		return isopen;
 
 	}
 
