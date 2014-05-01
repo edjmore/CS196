@@ -33,13 +33,15 @@ public final class R {
     }
     public static final class layout {
         public static final int activity_display_search_results=0x7f030000;
-        public static final int activity_main=0x7f030001;
-        public static final int list_view_layout=0x7f030002;
+        public static final int activity_help=0x7f030001;
+        public static final int activity_main=0x7f030002;
+        public static final int list_view_layout=0x7f030003;
     }
     public static final class menu {
         public static final int display_search_results=0x7f090000;
         public static final int ghhdjd=0x7f090001;
-        public static final int main=0x7f090002;
+        public static final int help=0x7f090002;
+        public static final int main=0x7f090003;
     }
     public static final class string {
         public static final int action_settings=0x7f070001;
@@ -47,6 +49,7 @@ public final class R {
         public static final int best_button=0x7f07000a;
         public static final int cardinal_quest=0x7f07000f;
         public static final int ews_quest=0x7f070010;
+        public static final int help_text=0x7f070013;
         public static final int needs=0x7f070011;
         public static final int no=0x7f070006;
         public static final int other_quest=0x7f070009;
@@ -57,6 +60,7 @@ public final class R {
         public static final int study_prefs=0x7f07000c;
         public static final int title_activity_display_best_results=0x7f07000b;
         public static final int title_activity_display_search_results=0x7f070004;
+        public static final int title_activity_help=0x7f070012;
         public static final int title_activity_study_preferences=0x7f07000d;
         public static final int tutor_question=0x7f070007;
         public static final int yes=0x7f070005;

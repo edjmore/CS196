@@ -43,6 +43,10 @@
             android:label="@string/title_activity_study_preferences"
             android:parentActivityName="MainActivity" >
         </activity>
+        <activity
+            android:name="cs196.studybuddy.Help"
+            android:label="@string/title_activity_help" >
+        </activity>
     </application>
 
 </manifest>

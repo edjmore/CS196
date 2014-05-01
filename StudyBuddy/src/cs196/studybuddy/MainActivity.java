@@ -5,9 +5,9 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.text.format.Time;
 import android.view.KeyEvent;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 
@@ -96,14 +96,21 @@ public class MainActivity extends Activity {
 	}
 
 	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case R.id.action_settings:
+			Intent intent = new Intent(this, Help.class);
+			startActivity(intent);
+			return true;
+		}
+		return super.onOptionsItemSelected(item);
+	}
+
+	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
-	}
-	
-	public void onSettingsClick(View view) {
-		//Intent = intent = new Intent(this, Help.class);
 	}
 
 	// searches the list of study spots for one which matches the name typed by
@@ -117,6 +124,7 @@ public class MainActivity extends Activity {
 		String[] results = master.search(search).toStringArray();
 
 		intent.putExtra(EXTRA_MESSAGE, results);
+		intent.putExtra(EXTRA_MESSAGE_2, search);
 
 		startActivity(intent);
 	}
@@ -133,7 +141,7 @@ public class MainActivity extends Activity {
 	 */
 	// finds the study spots that best match the user's preferences
 	// uses the bestSpots method in SpotList class
-	// TODO: the logic of this bestSpots method needs some work
+
 	public void findBest(View view) {
 		Intent intent = new Intent(this, DisplayBestResults.class);
 

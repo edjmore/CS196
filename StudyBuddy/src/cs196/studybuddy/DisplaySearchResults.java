@@ -22,9 +22,10 @@ public class DisplaySearchResults extends Activity {
 		setContentView(R.layout.activity_display_search_results);
 		// Show the Up button in the action bar.
 		setupActionBar();
-		
 
 		Intent intent = getIntent();
+		String search = intent.getStringExtra(MainActivity.EXTRA_MESSAGE_2);
+		setTitle("Results for " + search + "....");
 		String[] results = intent
 				.getStringArrayExtra(MainActivity.EXTRA_MESSAGE);
 
@@ -71,6 +72,10 @@ public class DisplaySearchResults extends Activity {
 			// http://developer.android.com/design/patterns/navigation.html#up-vs-back
 			//
 			NavUtils.navigateUpFromSameTask(this);
+			return true;
+		case R.id.action_settings:
+			Intent intent = new Intent(this, Help.class);
+			startActivity(intent);
 			return true;
 		}
 		return super.onOptionsItemSelected(item);

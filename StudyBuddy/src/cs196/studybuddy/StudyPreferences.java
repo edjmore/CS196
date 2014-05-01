@@ -2,12 +2,14 @@ package cs196.studybuddy;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceFragment;
 import android.support.v4.app.NavUtils;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 public class StudyPreferences extends Activity {
 
@@ -58,6 +60,10 @@ public class StudyPreferences extends Activity {
 			// http://developer.android.com/design/patterns/navigation.html#up-vs-back
 			//
 			NavUtils.navigateUpFromSameTask(this);
+			return true;
+		case R.id.action_settings:
+			Intent intent = new Intent(this, Help.class);
+			startActivity(intent);
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
