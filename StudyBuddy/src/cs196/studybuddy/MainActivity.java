@@ -101,6 +101,10 @@ public class MainActivity extends Activity {
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
+	
+	public void onSettingsClick(View view) {
+		//Intent = intent = new Intent(this, Help.class);
+	}
 
 	// searches the list of study spots for one which matches the name typed by
 	// the user
@@ -149,14 +153,8 @@ public class MainActivity extends Activity {
 
 		boolean EWS = myPrefs.getBoolean("ews_response", false);
 
-		Time now = new Time();
-		now.setToNow();
-		int hour = now.hour;
-		int min = now.minute;
-		int time = (hour * 100) + min;
-
-		String prefs = "T: " + tutors + " N: " + north + " E: " + EWS + " "
-				+ time;
+		String prefs = (north ? "North " : "South ") + "of Green "
+				+ (tutors ? "+ Tutors " : "") + (EWS ? "+ EWS" : "");
 
 		SpotList best = master.bestSpots(north, tutors, EWS);
 		best.sort(north, tutors);
