@@ -16,7 +16,8 @@ public class MainActivity extends Activity {
 
 	public final static String EXTRA_MESSAGE = "cs196.StudyBuddy.MESSAGE";
 	public final static String EXTRA_MESSAGE_2 = "cs196.StudyBuddy.MESSAGE2";
-// testing
+
+	// NOT testing
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -27,11 +28,70 @@ public class MainActivity extends Activity {
 		EditText mEditText = (EditText) findViewById(R.id.search_edit_text);
 		mEditText.setImeActionLabel("Search", KeyEvent.KEYCODE_ENTER);
 
+		Coffee bevande = new Coffee("Bevande", 0, 0);
+		Coffee caff = new Coffee("Caffeinator", 0, 0);
+		Coffee royale = new Coffee("Espresso Royale", 0, 0);
+		Coffee tom = new Coffee("Only the best...", 0, 0);
+		Coffee red = new Coffee("No", 0, 0);
+
+		Food cravings = new Food("Cravings", 0, 0);
+		Food subway = new Food("Subway", 0, 0);
+		Food veggie = new Food("Red Herring Vegetarian", 0, 0);
+		Food perkins = new Food("Perkins Bakery", 0, 0);
+		Food rain = new Food("Rainbow Garden", 0, 0);
+		Food wendys = new Food("Wendy's", 0, 0);
+		Food mia = new Food("Mia Za's", 0, 0);
+		Food thomas = new Food("Cheerios", 0, 0);
+		Food herring = new Food("Herring", 0, 0);
+		Food i57 = new Food("I-57", 0, 0);
+
 		master = new SpotList();
+		master.addSpot(new Spot("Grainger Library", bevande, cravings, true,
+				true, true, 0, 23));
+		master.addSpot(new Spot("Talbot Lab", bevande, cravings, true,
+				true, true, 0, 23));
+		master.addSpot(new Spot("Mechanical Engineering Lab (MEL)", bevande, cravings, true,
+				true, true, 0, 23));
+		master.addSpot(new Spot("Psychology Building", bevande, cravings, true,
+				true, true, 0, 23));
+		master.addSpot(new Spot("Undegraduate Library (UGL)", bevande, cravings, true,
+				true, true, 0, 23));
+		master.addSpot(new Spot("Siebel Center", bevande, cravings, true,
+				true, true, 0, 23));
+		master.addSpot(new Spot("Ikenberry Commons (SDRP)", bevande, cravings, true,
+				true, true, 0, 23));
+		master.addSpot(new Spot("Main Library", bevande, cravings, true,
+				true, true, 0, 23));
+		master.addSpot(new Spot("Business Instructional Facility (BIF)", bevande, cravings, true,
+				true, true, 0, 23));
+		master.addSpot(new Spot("Illini Student Union", bevande, cravings, true,
+				true, true, 0, 23));
+		master.addSpot(new Spot("Loomis Lab", bevande, cravings, true,
+				true, true, 0, 23));
+		master.addSpot(new Spot("Activities and Recreation Center (ARC)", bevande, cravings, true,
+				true, true, 0, 23));
+		master.addSpot(new Spot("Engineering Hall", bevande, cravings, true,
+				true, true, 0, 23));
+		master.addSpot(new Spot("The Armory", bevande, cravings, true,
+				true, true, 0, 23));
+		master.addSpot(new Spot("Digital Computer Lab (DCL)", bevande, cravings, true,
+				true, true, 0, 23));
+		master.addSpot(new Spot("Altgeld Hall", bevande, cravings, true,
+				true, true, 0, 23));
+		master.addSpot(new Spot("Noyes Lab", bevande, cravings, true,
+				true, true, 0, 23));
+		master.addSpot(new Spot("Foreign Language Building", bevande, cravings, true,
+				true, true, 0, 23));
+		master.addSpot(new Spot("Everritt Lab", bevande, cravings, true,
+				true, true, 0, 23));
+		master.addSpot(new Spot("Thomas's House", bevande, cravings, true,
+				true, true, 0, 23));
+		master.addSpot(new Spot("Red Lion", bevande, cravings, true,
+				true, true, 0, 23));
 		// reading Spot data and putting spots into master list (needs to be
 		// fixed)
 		// sample spots:
-	
+
 	}
 
 	@Override

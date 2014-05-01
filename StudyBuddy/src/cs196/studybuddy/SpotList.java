@@ -1,5 +1,7 @@
 package cs196.studybuddy;
 
+import java.io.File;
+
 
 
 /**
@@ -13,8 +15,12 @@ public class SpotList {
 	private int size;
 
 	public SpotList() {
-		spotList = new Spot[10];
+		spotList = new Spot[21];
 		size = 0;
+	}
+	
+	public SpotList(File data){
+		
 	}
 
 	public SpotList search(String name) {

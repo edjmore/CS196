@@ -1,6 +1,6 @@
 package cs196.studybuddy;
 
-
+import android.text.format.Time;
 
 /**
  * @author Ed Moore
@@ -12,12 +12,18 @@ public class Spot {
 	private boolean isNorth;
 	private Coffee closestCoffee;
 	private boolean tutors;
+	private boolean EWS;
 	private Food closestFood;
+	private int open;
+	private int close;
 
 	public Spot() {
 		name = "";
 		closestCoffee = null;
 		tutors = false;
+		EWS = false;
+		open = 0;
+		close = 0;
 	}
 
 	/**
@@ -27,12 +33,16 @@ public class Spot {
 	 * @param food
 	 * @param tutors
 	 */
-	public Spot(String name, Coffee closestCoffee,
-			boolean tutors, boolean isNorth) {
+	public Spot(String name, Coffee closestCoffee, Food closestFood,
+			boolean tutors, boolean isNorth, boolean EWS, int open, int close) {
 		this.name = name;
 		this.tutors = tutors;
 		this.isNorth = isNorth;
 		this.closestCoffee = closestCoffee;
+		this.closestFood = closestFood;
+		this.open = open;
+		this.close = close;
+		this.EWS = EWS;
 	}
 
 	public int compareTo(Spot other, boolean isNorth, boolean tutors) {
@@ -58,7 +68,7 @@ public class Spot {
 		return this.name;
 	}
 
-	public Coffee getCoffee(){
+	public Coffee getCoffee() {
 		return this.closestCoffee;
 	}
 
@@ -69,26 +79,66 @@ public class Spot {
 	public boolean getIsNorth() {
 		return this.isNorth;
 	}
-	
-	public Food getFood(){
+
+	public Food getFood() {
 		return this.closestFood;
+	}
+
+	public int getOpen() {
+		return this.open;
+	}
+
+	public int getClose() {
+		return this.close;
+	}
+
+	public boolean getEWS() {
+		return this.EWS;
 	}
 
 	public String toString() {
 		String returnable = name;
-		
-		if(this.tutors) returnable = returnable + "\n Tutors: Available";
-		else returnable = returnable + " \n Tutors: Unavailable";
-		
-		if(closestCoffee != null) returnable = returnable + "\n Closest Coffee: " + this.closestCoffee.getName();
-		else returnable = returnable +"\n Closest Coffee: None";
-		
-		if(closestFood != null) returnable = returnable + "\n Closest Food: " + this.closestFood.getName();
-		else returnable = returnable +"\n Closest Food: None";
-		
+
+		if (this.tutors)
+			returnable = returnable + "\n Tutors: Available";
+		else
+			returnable = returnable + " \n Tutors: Unavailable";
+
+		if (closestCoffee != null && closestCoffee.isOpen())
+			returnable = returnable + "\n Closest Coffee: "
+					+ this.closestCoffee.getName() + "  Open";
+		else if (!closestCoffee.isOpen())
+			returnable = returnable + "\n Closest Coffee: "
+					+ this.closestCoffee.getName() + "  Closed";
+		else
+			returnable = returnable + "\n Closest Coffee: None";
+
+		if (closestFood != null && closestFood.isOpen())
+			returnable = returnable + "\n Closest Food: "
+					+ this.closestFood.getName() + "  Open";
+		else if (!closestFood.isOpen())
+			returnable = returnable + "\n Closest Food: "
+					+ this.closestFood.getName() + "  Closed";
+		else
+			returnable = returnable + "\n Closest Food: None";
+
+		if (EWS)
+			returnable = returnable + "\n EWS: Available";
+		else
+			returnable = returnable + " \n EWS: Unavailable";
+
 		return returnable;
-		
-		
+
+	}
+
+	public boolean isOpen() {
+		boolean isopen = false;
+		Time now = new Time();
+		now.setToNow();
+		if (now.hour >= this.open && now.hour < this.close)
+			isopen = true;
+		return isopen;
+
 	}
 
 }
