@@ -45,17 +45,26 @@ public class Spot {
 		this.EWS = EWS;
 	}
 
-	public int compareTo(Spot other, boolean isNorth, boolean tutors) {
+	public int compare(Spot other) {
 		int score = 0;
 		if (other.getTutors() == true)
-			score--;
-		if (this.getTutors() == true)
-			score++;
-		if (this.getIsNorth() == isNorth)
-			score++;
-		if (other.getIsNorth() == isNorth)
+			score -= 3;
+		if (other.getCoffee().isOpen())
 			score--;
 
+		if (other.getEWS() == EWS)
+			score -= 2;
+		if (other.getFood().isOpen())
+			score--;
+		if (this.getTutors() == true)
+			score += 3;
+
+		if (this.getEWS() == EWS)
+			score += 2;
+		if (this.getCoffee().isOpen())
+			score++;
+		if (this.getFood().isOpen())
+			score++;
 		return score >= 0 ? 1 : -1;
 
 	}
@@ -140,9 +149,6 @@ public class Spot {
 		int time = (hour * 100) + min;
 		if (time >= this.open && time < this.close)
 			isopen = true;
-		if (close < open)
-			if (time < open && time > close)
-				isopen = false;
 		return isopen;
 
 	}

@@ -14,7 +14,7 @@ public class SpotList {
 	private int size;
 
 	public SpotList() {
-		spotList = new Spot[21];
+		spotList = new Spot[30];
 		size = 0;
 	}
 
@@ -79,17 +79,27 @@ public class SpotList {
 				bestSpots.addSpot(bestspot);
 			}
 		}
+
 		return bestSpots;
 	}
 
-	public void sort(boolean isNorth, boolean tutors) {
-		sort(isNorth, tutors, 0, getSize());
+	/*
+	 * public static void sort(double[] data) { sort(data, 0, data.length-1); }
+	 * 
+	 * * Recursively sorts the sub array lo...hi using selection sort algorithm.
+	 * * public static void sort(double[] data, int lo, int hi) { if (lo < hi){
+	 * swap(data, lo, findMin(data, lo, hi)); sort(data, lo+1, hi); }
+	 * 
+	 * }
+	 */
+	public void sort() {
+		sort(0, getSize() - 1);
 	}
 
-	public void sort(boolean isNorth, boolean tutors, int lo, int hi) {
-		if (lo < hi) {
-			swap(lo, findBest(isNorth, tutors, hi));
-			sort(isNorth, tutors, lo + 1, hi);
+	public void sort(int lo, int size) {
+		if (lo < size) {
+			swap(lo, findBest());
+			sort(lo + 1, size);
 		}
 	}
 
@@ -99,18 +109,22 @@ public class SpotList {
 		spotList[hi] = temp;
 	}
 
-	public int findBest(boolean isNorth, boolean tutors, int size) {
-		int count = 0;
-		for (int i = 0; i < size; i++) {
-			if (spotList[i].getIsNorth() == isNorth
-					&& spotList[i].getTutors() == tutors)
-				count = i;
-		}
-		return count;
+	/*
+	 * public static int findMin(double[] data, int lo, int hi) { if (lo == hi)
+	 * return lo; int min = findMin(data, lo + 1, hi); if (data[min] < data[lo])
+	 * return min; return lo; }
+	 */
+	public int findBest(int lo, int size) {
+		if (lo >= size)
+			return size;
+		int best = findBest(lo + 1, size);
+		if (this.spotList[best].compare(this.spotList[lo]) > 0)
+			return best;
+		return lo;
 	}
 
-	public int findBest(boolean n, boolean t) {
-		return findBest(n, t, getSize());
+	public int findBest() {
+		return findBest(0, getSize() - 1);
 
 	}
 

@@ -165,7 +165,7 @@ public class MainActivity extends Activity {
 				+ (tutors ? "+ Tutors " : "") + (EWS ? "+ EWS" : "");
 
 		SpotList best = master.bestSpots(north, tutors, EWS);
-		best.sort(north, tutors);
+		best.sort();
 		String[] result = best.toStringArray();
 		intent.putExtra(EXTRA_MESSAGE, result);
 		intent.putExtra(EXTRA_MESSAGE_2, prefs);
