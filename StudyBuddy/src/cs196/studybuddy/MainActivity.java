@@ -16,7 +16,7 @@ public class MainActivity extends Activity {
 
 	public final static String EXTRA_MESSAGE = "cs196.StudyBuddy.MESSAGE";
 	public final static String EXTRA_MESSAGE_2 = "cs196.StudyBuddy.MESSAGE2";
-
+// testing
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
