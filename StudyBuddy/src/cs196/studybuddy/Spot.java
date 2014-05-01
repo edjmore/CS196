@@ -10,14 +10,13 @@ public class Spot {
 
 	private String name;
 	private boolean isNorth;
-	private String coffeeFar;
-	private String coffeeNear;
+	private Coffee closestCoffee;
 	private boolean tutors;
+	private Food closestFood;
 
 	public Spot() {
 		name = "";
-		coffeeFar = "";
-		coffeeNear = "";
+		closestCoffee = null;
 		tutors = false;
 	}
 
@@ -28,28 +27,23 @@ public class Spot {
 	 * @param food
 	 * @param tutors
 	 */
-	public Spot(String name, String coffeeFar, String coffeeNear,
+	public Spot(String name, Coffee closestCoffee,
 			boolean tutors, boolean isNorth) {
 		this.name = name;
-		this.coffeeNear = coffeeNear;
-		this.coffeeFar = coffeeFar;
 		this.tutors = tutors;
 		this.isNorth = isNorth;
+		this.closestCoffee = closestCoffee;
 	}
 
 	public int compareTo(Spot other, boolean isNorth, boolean tutors) {
 		int score = 0;
-		if (other.getTutors() == false)
+		if (other.getTutors() == true)
 			score--;
-		if (this.getTutors() == false)
+		if (this.getTutors() == true)
 			score++;
-		if (this.getCoffeeFar() == null)
+		if (this.getIsNorth() == isNorth)
 			score++;
-		if (this.getCoffeeNear() == null)
-			score++;
-		if (other.getCoffeeFar() == null)
-			score--;
-		if (other.getCoffeeNear() == null)
+		if (other.getIsNorth() == isNorth)
 			score--;
 
 		return score >= 0 ? 1 : -1;
@@ -64,12 +58,8 @@ public class Spot {
 		return this.name;
 	}
 
-	public String getCoffeeFar() {
-		return this.coffeeFar;
-	}
-
-	public String getCoffeeNear() {
-		return this.coffeeNear;
+	public Coffee getCoffee(){
+		return this.closestCoffee;
 	}
 
 	public boolean getTutors() {
@@ -79,11 +69,26 @@ public class Spot {
 	public boolean getIsNorth() {
 		return this.isNorth;
 	}
+	
+	public Food getFood(){
+		return this.closestFood;
+	}
 
 	public String toString() {
-		return name + "\nTutors: " + this.tutors != null && this.tutors == true ? "Available"
-				: "Unavailable" + "\nClosest Coffee: " + this.coffeeFar != null ? this.coffeeNear
-						: "None" + "\nCoffee Shops: " + this.coffeeFar != null ? this.coffeeFar
-								: "None";
+		String returnable = name;
+		
+		if(this.tutors) returnable = returnable + "\n Tutors: Available";
+		else returnable = returnable + " \n Tutors: Unavailable";
+		
+		if(closestCoffee != null) returnable = returnable + "\n Closest Coffee: " + this.closestCoffee.getName();
+		else returnable = returnable +"\n Closest Coffee: None";
+		
+		if(closestFood != null) returnable = returnable + "\n Closest Food: " + this.closestFood.getName();
+		else returnable = returnable +"\n Closest Food: None";
+		
+		return returnable;
+		
+		
 	}
+
 }

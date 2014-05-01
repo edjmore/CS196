@@ -22,7 +22,7 @@ public class DisplaySearchResults extends Activity {
 		setContentView(R.layout.activity_display_search_results);
 		// Show the Up button in the action bar.
 		setupActionBar();
-		setContentView(R.layout.activity_display_search_results);
+		
 
 		Intent intent = getIntent();
 		String[] results = intent
