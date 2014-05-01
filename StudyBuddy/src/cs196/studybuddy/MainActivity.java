@@ -31,11 +31,7 @@ public class MainActivity extends Activity {
 		// reading Spot data and putting spots into master list (needs to be
 		// fixed)
 		// sample spots:
-		master.addSpot(new Spot("Grainger Library", 1.3, true));
-		master.addSpot(new Spot("Mechanical Engineering Lab", 1.27, false));
-		master.addSpot(new Spot("Talbot Lab", 1.25, true));
-		master.addSpot(new Spot("Undergrad Library", .55, false));
-		master.addSpot(new Spot("Psychology Building", 0.93, false));
+	
 	}
 
 	@Override
@@ -92,8 +88,8 @@ public class MainActivity extends Activity {
 
 		String prefs = "T: " + tutors + " N: " + north;
 
-		SpotList best = master.bestSpots(0, tutors);
-		best.sort(0, tutors);
+		SpotList best = master.bestSpots(north, tutors);
+		best.sort(north, tutors);
 		String[] result = best.toStringArray();
 		intent.putExtra(EXTRA_MESSAGE, result);
 		intent.putExtra(EXTRA_MESSAGE_2, prefs);

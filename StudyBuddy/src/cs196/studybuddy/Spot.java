@@ -1,21 +1,23 @@
 package cs196.studybuddy;
 
+
+
 /**
- * 
  * @author Ed Moore
  * 
  */
 public class Spot {
 
 	private String name;
-	// private double wifiSpeed;
-	private double foodDistance;
+	private boolean isNorth;
+	private String coffeeFar;
+	private String coffeeNear;
 	private boolean tutors;
 
 	public Spot() {
-		name = "No data";
-		// wifiSpeed = 0;
-		foodDistance = 0;
+		name = "";
+		coffeeFar = "";
+		coffeeNear = "";
 		tutors = false;
 	}
 
@@ -26,50 +28,62 @@ public class Spot {
 	 * @param food
 	 * @param tutors
 	 */
-	public Spot(String name, double foodDistance, boolean tutors) {
+	public Spot(String name, String coffeeFar, String coffeeNear,
+			boolean tutors, boolean isNorth) {
 		this.name = name;
-		// this.wifiSpeed = wifiSpeed;
-		this.foodDistance = foodDistance;
+		this.coffeeNear = coffeeNear;
+		this.coffeeFar = coffeeFar;
 		this.tutors = tutors;
+		this.isNorth = isNorth;
 	}
 
-	public String getName() {
-		return this.name;
-	}
-
-	public int compareTo(Spot other, double food, boolean tutors) {
+	public int compareTo(Spot other, boolean isNorth, boolean tutors) {
 		int score = 0;
-		if (this.getTutors() == tutors)
-			score++;
-		if (other.getTutors() == tutors)
+		if (other.getTutors() == false)
 			score--;
-		if (this.getFoodDistance() <= food)
+		if (this.getTutors() == false)
 			score++;
-		if (other.getFoodDistance() <= food)
+		if (this.getCoffeeFar() == null)
+			score++;
+		if (this.getCoffeeNear() == null)
+			score++;
+		if (other.getCoffeeFar() == null)
 			score--;
-		if (score == 0)
-			return other.getFoodDistance() > this.getFoodDistance() ? 1 : -1;
-		return score;
+		if (other.getCoffeeNear() == null)
+			score--;
+
+		return score >= 0 ? 1 : -1;
+
 	}
 
 	/**
 	 * public double getWifiSpeed() { return this.wifiSpeed; }
 	 */
-	public double getFoodDistance() {
-		return this.foodDistance;
+
+	public String getName() {
+		return this.name;
+	}
+
+	public String getCoffeeFar() {
+		return this.coffeeFar;
+	}
+
+	public String getCoffeeNear() {
+		return this.coffeeNear;
 	}
 
 	public boolean getTutors() {
 		return this.tutors;
 	}
 
+	public boolean getIsNorth() {
+		return this.isNorth;
+	}
+
 	public String toString() {
-		String tutorOut = "";
-		if (this.tutors)
-			tutorOut = "Available";
-		else
-			tutorOut = "Unavailable";
-		return name + "\nTutors: " + tutorOut + "\nClosest Food: "
-				+ this.foodDistance;
+		return name + "\nTutors: " + this.tutors != null && this.tutors == true ? "Available"
+				: "Unavailable" + "\nClosest Coffee: " + this.coffeeFar != null ? this.coffeeNear
+						: "None" + "\nCoffee Shops: " + this.coffeeFar != null ? this.coffeeFar
+								: "None";
 	}
 }
