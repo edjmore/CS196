@@ -76,7 +76,7 @@ public class MainActivity extends Activity {
 		master.addSpot(new Spot("The Armory", royale, subway, false, false,
 				false, 400, 2200));
 		master.addSpot(new Spot("Digital Computer Lab (DCL)", bevande,
-				cravings, false, true, true, 545, 2400));
+				cravings, false, true, true, 545, 0));
 		master.addSpot(new Spot("Altgeld Library", royale, mia, true, false,
 				false, 600, 2200));
 		master.addSpot(new Spot("Chemistry Library (Noyes)", royale, veggie,
@@ -88,7 +88,7 @@ public class MainActivity extends Activity {
 		master.addSpot(new Spot("Thomas's House", tom, thomas, true, true,
 				false, 0, 2300));
 		master.addSpot(new Spot("Red Lion", red, herring, false, false, false,
-				700, 2500));
+				700, 100));
 		// reading Spot data and putting spots into master list (needs to be
 		// fixed)
 		// sample spots:

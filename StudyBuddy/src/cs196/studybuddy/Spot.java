@@ -114,11 +114,11 @@ public class Spot {
 			returnable = returnable + "\nCoffee: None";
 
 		if (closestFood != null && closestFood.isOpen())
-			returnable = returnable + "\nFood: "
-					+ this.closestFood.getName() + "  (OPEN)";
+			returnable = returnable + "\nFood: " + this.closestFood.getName()
+					+ "  (OPEN)";
 		else if (!closestFood.isOpen())
-			returnable = returnable + "\nFood: "
-					+ this.closestFood.getName() + "  (CLOSED)";
+			returnable = returnable + "\nFood: " + this.closestFood.getName()
+					+ "  (CLOSED)";
 		else
 			returnable = returnable + "\nClosest Food: None";
 
@@ -140,6 +140,9 @@ public class Spot {
 		int time = (hour * 100) + min;
 		if (time >= this.open && time < this.close)
 			isopen = true;
+		if (close < open)
+			if (time < open && time > close)
+				isopen = false;
 		return isopen;
 
 	}

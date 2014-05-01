@@ -40,6 +40,9 @@ public class Coffee {
 		int time = (hour * 100) + min;
 		if (time >= this.openTime && time < this.closeTime)
 			isopen = true;
+		if (closeTime < openTime)
+			if (time < openTime && time > closeTime)
+				isopen = false;
 		return isopen;
 
 	}
