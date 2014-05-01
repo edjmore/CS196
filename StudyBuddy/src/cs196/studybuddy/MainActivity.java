@@ -2,33 +2,35 @@ package cs196.studybuddy;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 
 public class MainActivity extends Activity {
-
 	private SpotList master;
-
 	public final static String EXTRA_MESSAGE = "cs196.StudyBuddy.MESSAGE";
 
+	DBAdapter db = new DBAdapter(this);
+	EditText Loc;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-
 		// Changing the keyboard for the search edit text so it shows "search"
 		// instead of "done"
 		EditText mEditText = (EditText) findViewById(R.id.search_edit_text);
 		mEditText.setImeActionLabel("Search", KeyEvent.KEYCODE_ENTER);
-
-		master = new SpotList();
-		// reading Spot data and putting spots into master list (needs to be
-		// fixed)
-		master.addSpot(new Spot("", 2, 0, false));
+		
+		// Capture our button from layout
+		Button setButton = (Button)findViewById(R.id.radio_yes_tutors);
+		Button getButton = (Button)findViewById(R.id.search_edit_text);
+		
 	}
 
 	@Override
@@ -81,7 +83,7 @@ public class MainActivity extends Activity {
 	}
 
 	public void onPrefsButtonClick(View view) {
-		Intent intent = new Intent(this, StudyPreferences.class);
+		Intent intent = new Intent(this, SharedPreferences.class);
 		startActivity(intent);
 	}
 }

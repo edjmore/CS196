@@ -1,11 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<resources>
-
-    <string-array name="food_distance">
-        <item>"0.25 miles"</item>
-        <item>"0.50 miles"</item>
-        <item>"0.75 miles"</item>
-        <item>"1 miles"</item>
-        <item>"2 miles"</item>
-    </string-array>
-</resources>
