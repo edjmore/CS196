@@ -93,7 +93,7 @@ public class SpotList {
 	 * }
 	 */
 	public void sort() {
-		sort(0, getSize() - 1);
+		sort(0, this.getSize());
 	}
 
 	public void sort(int lo, int size) {
@@ -115,16 +115,16 @@ public class SpotList {
 	 * return min; return lo; }
 	 */
 	public int findBest(int lo, int size) {
-		if (lo >= size)
+		if (lo == size)
 			return size;
 		int best = findBest(lo + 1, size);
-		if (this.spotList[best].compare(this.spotList[lo]) > 0)
+		if (this.spotList[best].compare(this.spotList[lo]) < 0)
 			return best;
 		return lo;
 	}
 
 	public int findBest() {
-		return findBest(0, getSize() - 1);
+		return findBest(0, this.getSize() - 1);
 
 	}
 

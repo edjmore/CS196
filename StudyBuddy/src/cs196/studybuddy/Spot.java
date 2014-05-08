@@ -47,25 +47,24 @@ public class Spot {
 
 	public int compare(Spot other) {
 		int score = 0;
-		if (other.getTutors() == true)
-			score -= 3;
+		int score2 = 0;
+		if (other.getTutors())
+			score += 5;
 		if (other.getCoffee().isOpen())
-			score--;
-
-		if (other.getEWS() == EWS)
-			score -= 2;
-		if (other.getFood().isOpen())
-			score--;
-		if (this.getTutors() == true)
-			score += 3;
-
-		if (this.getEWS() == EWS)
 			score += 2;
+		if (other.getEWS())
+			score += 3;
+		if (other.getFood().isOpen())
+			score += 1;
+		if (this.getTutors())
+			score2 += 5;
+		if (this.getEWS())
+			score2 += 3;
 		if (this.getCoffee().isOpen())
-			score++;
+			score2 += 2;
 		if (this.getFood().isOpen())
-			score++;
-		return score >= 0 ? 1 : -1;
+			score2 += 1;
+		return score >= score2 ? -1 : 1;
 
 	}
 
